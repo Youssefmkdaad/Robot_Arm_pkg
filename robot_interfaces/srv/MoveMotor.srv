@@ -1,0 +1,4 @@
+int64 steps
+bool dir
+---
+float64 new_location

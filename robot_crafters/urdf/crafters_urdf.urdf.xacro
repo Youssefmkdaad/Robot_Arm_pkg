@@ -1,0 +1,483 @@
+<?xml version="1.0"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter 
+     ros2 topic pub -1 /set_joint_trajectory trajectory_msgs/msg/JointTrajectory '{header:
+{frame_id: base_footprint}, joint_names: [joint_1, joint_2],
+points: [
+  {positions: [0.5, 0.7], velocities: [0.01, 0.02], accelerations: [0.1, 0.2], time_from_start: {sec: 2, nanosec: 0}}
+]}'
+
+     -->
+<robot name="final_urdf" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+
+  <material name="White">
+      <color rgba="1 1 1 1" />
+  </material>
+
+
+
+  <material name="Green">
+      <color rgba="0.266666666666667 0.588235294117647 0.282352941176471 1" />
+  </material>
+
+  
+  <link name="base_footprint">
+      <visual>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+              <box size="0.001 0.001 0.001" />
+          </geometry>
+      </visual>
+  </link>
+
+  <joint name="base_footprint_joint" type="fixed">
+      <origin xyz="0 0 0.001" rpy="0 0 0" />
+      <parent link="base_footprint"/>
+      <child link="base_link" />
+  </joint>
+    <link
+      name="base_link">
+      <inertial>
+        <origin
+          xyz="3.81639164622205E-17 -1.61011833905913E-17 0.0425864553314121"
+          rpy="0 0 0" />
+        <mass
+          value="10" />
+        <inertia
+          ixx="0.6"
+          ixy="0"
+          ixz="0"
+          iyy="0.5"
+          iyz="0"
+          izz="0.6" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/base_link.STL" />
+        </geometry>
+        <material
+          name="White">
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="3.81639164622205E-17 -1.61011833905913E-17 0.0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <link
+      name="link_1">
+      <inertial>
+        <origin
+          xyz="-0.00726865780665834 -0.00285369668637606 0.04360556108188"
+          rpy="0 0 0" />
+        <mass
+          value="0.263221784038489" />
+        <inertia
+          ixx="0.6"
+          ixy="0"
+          ixz="0"
+          iyy="0.5"
+          iyz="0"
+          izz="0.6" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/link_1.STL" />
+        </geometry>
+        <material
+          name="White">
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="-0.00726865780665834 -0.00285369668637606 0.04360556108188"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/link_1.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="joint_1"
+      type="revolute">
+      <origin
+        xyz="0 0 0.07"
+        rpy="0 0 0" />
+      <parent
+        link="base_link" />
+      <child
+        link="link_1" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="-3.142"
+        upper="3.142"
+        effort="300"
+        velocity="3" />
+      <dynamics
+        damping="0.1"
+        friction="4" />
+    </joint>
+    <link
+      name="link_2">
+      <inertial>
+        <origin
+          xyz="-1.73472347597681E-17 -0.075 0.0212098007792094"
+          rpy="0 0 0" />
+        <mass
+          value="1.29806509506951" />
+        <inertia
+          ixx="0.6"
+          ixy="0"
+          ixz="0"
+          iyy="0.5"
+          iyz="0"
+          izz="0.6" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/link_2.STL" />
+        </geometry>
+        <material
+          name="White">
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="-1.73472347597681E-17 -0.075 0.0212098007792094"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/link_2.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="joint_2"
+      type="revolute">
+      <origin
+        xyz="0.023271 0.0091362 0.08"
+        rpy="-1.5708 0 -1.1967" />
+      <parent
+        link="link_1" />
+      <child
+        link="link_2" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="-1.57"
+        upper="1.57"
+        effort="200"
+        velocity="3" />
+      <dynamics
+        damping="0.1"
+        friction="4" />
+    </joint>
+    <link
+      name="link_3">
+      <inertial>
+        <origin
+          xyz="0.0749999999999999 0 0.0221538622967558"
+          rpy="0 0 0" />
+        <mass
+          value="0.647520566305543" />
+        <inertia
+          ixx="0.6"
+          ixy="0"
+          ixz="0"
+          iyy="0.5"
+          iyz="0"
+          izz="0.6" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/link_3.STL" />
+        </geometry>
+        <material
+          name="White">
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0.0749999999999999 0 0.0221538622967558"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/link_3.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="joint_3"
+      type="revolute">
+      <origin
+        xyz="0 -0.15 -0.025"
+        rpy="3.1416 0 3.1416" />
+      <parent
+        link="link_2" />
+      <child
+        link="link_3" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="-2.617"
+        upper="1"
+        effort="300"
+        velocity="3" />
+      <dynamics
+        damping="0.1"
+        friction="2.5" />
+    </joint>
+    <link
+      name="link_4">
+      <inertial>
+        <origin
+          xyz="-0.0260016749419192 2.30871791572218E-05 0.0221909941892141"
+          rpy="0 0 0" />
+        <mass
+          value="0.323800131384377" />
+        <inertia
+          ixx="0.6"
+          ixy="0"
+          ixz="0"
+          iyy="0.5"
+          iyz="0"
+          izz="0.6" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/link_4.STL" />
+        </geometry>
+        <material
+          name="White">
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="-0.0260016749419192 2.30871791572218E-05 0.0221909941892141"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/link_4.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="joint_4"
+      type="revolute">
+      <origin
+        xyz="0.15 0 0"
+        rpy="-3.1416 0 3.1416" />
+      <parent
+        link="link_3" />
+      <child
+        link="link_4" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="-1.57"
+        upper="1.57"
+        effort="200"
+        velocity="3" />
+      <dynamics
+        damping="0.1"
+        friction="2.5" />
+    </joint>
+    <link
+      name="finger_1">
+      <inertial>
+        <origin
+          xyz="0.0050659568614265 0.00722328240335451 0.000708156431126539"
+          rpy="0 1.57 1.57" />
+        <mass
+          value="0.00693344911968842" />
+        <inertia
+          ixx="0.6"
+          ixy="0"
+          ixz="0"
+          iyy="0.5"
+          iyz="0"
+          izz="0.6" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="3.142 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/finger_1.STL" />
+        </geometry>
+        <material
+          name="Green">
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0.0050659568614265 0.00722328240335451 0.000708156431126539"
+          rpy="0 1.57 1.57" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/finger_1.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="finger_joint_1"
+      type="prismatic">
+      <origin
+        xyz="-0.12314 -0.022919 0.023221"
+        rpy="1.5708 -1.5708 0" />
+      <parent
+        link="link_4" />
+      <child
+        link="finger_1" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="0"
+        upper="0.02"
+        effort="100"
+        velocity="3" />
+      <dynamics
+        damping="0.1"
+        friction="2.5" />
+    </joint>
+    <link
+      name="finger_2">
+      <inertial>
+        <origin
+          xyz="0.00506595899372983 0.00722329429647373 0.000708146948421196"
+          rpy="0 0 0" />
+        <mass
+          value="0.00693344898001996" />
+        <inertia
+          ixx="0.6"
+          ixy="0"
+          ixz="0"
+          iyy="0.5"
+          iyz="0"
+          izz="0.6" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/finger_2.STL" />
+        </geometry>
+        <material
+          name="Green">
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0.00506595899372983 0.00722329429647373 0.000708146948421196"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://robot_crafters/meshes/visual/finger_2.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="finger_joint_2"
+      type="prismatic">
+      <origin
+        xyz="-0.12314 0.022928 0.021779"
+        rpy="1.5708 1.5708 0" />
+      <parent
+        link="link_4" />
+      <child
+        link="finger_2" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="0.02"
+        effort="100"
+        velocity="3" />
+      <dynamics
+        damping="0.1"
+        friction="2.5" />
+    </joint>
+
+  <!-- Fix colors in Gazebo -->
+  <gazebo reference="base_link">
+      <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="finger_1">
+      <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="finger_2">
+      <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="link_1">
+      <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="link_2">
+      <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="link_3">
+      <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="link_4">
+      <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo>
+      <plugin name="joint_state_publisher_controller"
+              filename="libgazebo_ros_joint_state_publisher.so">
+          <!-- Update rate in Hertz -->
+          <update_rate>60</update_rate>
+          <!-- Name of joints in the model whose states will be published. -->
+          <joint_name>base_footprint_joint</joint_name>
+          <joint_name>joint_1</joint_name>
+          <joint_name>joint_2</joint_name>
+          <joint_name>joint_3</joint_name>
+          <joint_name>joint_4</joint_name>
+          <joint_name>finger_joint_1</joint_name>
+          <joint_name>finger_joint_2</joint_name>
+      </plugin>
+  </gazebo>
+
+  <gazebo>
+      <plugin name="joint_pose_trajectory_controller"
+              filename="libgazebo_ros_joint_pose_trajectory.so">
+          <!-- Update rate in Hz -->
+          <update_rate>60</update_rate>
+      </plugin>
+  </gazebo>
+
+
+
+</robot>
