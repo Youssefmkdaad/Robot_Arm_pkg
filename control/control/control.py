@@ -51,7 +51,7 @@ class ControlNode(Node):
 
     def calculate_inverse_kinematics(self, x, y, z, orientation, f1, f2):
 
-        angles = [np.deg2rad(val) for val in [x, y, z, orientation]]
+        angles = [np.deg2rad(val) for val in [x, -y, -z, orientation]]
 
         msg = JointTrajectory()
         msg.header.frame_id = "base_footprint"
